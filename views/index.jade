@@ -1,0 +1,60 @@
+extends layout
+
+block content
+  head
+    // Custom styles for this template
+  body      
+    main.col-md-9.ml-sm-auto.col-lg-10.pt-3.px-4(role='main')
+      .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pb-2.mb-3.border-bottom
+        h1.h2 Ubicacion
+        .btn-toolbar.mb-2.mb-md-0
+          .btn-group.mr-2
+            button.btn.btn-sm.btn-outline-secondary Copiar          
+       #map(style='width:70%;height:380px;')             
+      h2 Ultimos Reportes
+      .table-responsive
+        table.table.table-striped.table-sm
+          thead
+            tr
+              th Users
+              th Zone
+              th Fecha y Hora
+              th Latitud
+              th Longitud
+          tbody
+            each p in post
+              tr
+                td=p.username
+                td=p.zone
+                td=p.date
+                td#lat=p.lat
+                td#lng=p.lng
+
+    //
+      Bootstrap core JavaScript
+      ==================================================
+    // Placed at the end of the document so the pages load faster
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script.
+      window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\\/script>')
+    // Icons
+    script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
+    script.
+      feather.replace()
+    // Graphs
+    script.
+       var map;
+       function initMap() {      
+      
+         var uluru = {lat: 	-31.4135, lng: -64.1811};
+       map = new google.maps.Map(document.getElementById('map'), {   
+         center: uluru,
+           zoom: 20
+         })
+         var marker = new google.maps.Marker({
+         position: uluru,
+         map: map
+       });
+           }
+    script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCYDGT2xlYewqce4i3nS5pjQmKtGocxXO4&callback=initMap', async='', defer='')
+    

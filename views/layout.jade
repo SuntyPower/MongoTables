@@ -1,0 +1,43 @@
+doctype html
+html
+head
+    title= title
+    link(rel="stylesheet", href="/stylesheets/bootstrap.min.css")
+    script(src="/javascripts/bootstrap.min.js")
+    body
+       nav.navbar.navbar-dark.sticky-top.bg-dark.flex-md-nowrap.p-0
+         a.navbar-brand.col-sm-3.col-md-2.mr-0(href='#')  NervAns Security
+         input.form-control.form-control-dark.w-100(type='text', placeholder='Buscar', aria-label='Search')
+         ul.navbar-nav.px-3
+           li.nav-item.text-nowrap
+             a.nav-link(href='#') Desconectarse
+       .container-fluid
+         .row
+           nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+             .sidebar-sticky
+               ul.nav.flex-column
+                 li.nav-item
+                   a.nav-link.active(href='/')
+                     span(data-feather='home')
+                     |                   Panel Principal 
+                     span.sr-only (current)
+                 li.nav-item
+                   a.nav-link(href='/api/posts')
+                     span(data-feather='file')
+                     |                   Datos
+                 li.nav-item
+                   a.nav-link(href='#')
+                     span(data-feather='shopping-cart')
+                     |                   Dispositivos
+                 li.nav-item
+                   a.nav-link(href='#')
+                     span(data-feather='users')
+                     |                   Perfil
+                 li.nav-item
+                   a.nav-link(href='#')
+                     span(data-feather='bar-chart-2')
+                     |                   Reportes
+                  
+      
+            block content
+  
